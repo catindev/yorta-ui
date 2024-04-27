@@ -15,11 +15,11 @@
     line-height: normal;
     border: 0;
     border-radius: 5px;
-    box-shadow: 0px 3px 10px 0px rgba(var(--brand-light-rgb), 0.15);
 }
 
 .Button:active {
-    box-shadow: 0px 0px 0px .25em rgba(var(--brand-dark-rgb), 0.25);
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 form[disabled] .Button:active, form[disabled] .Button:hover, .Button[disabled]:hover, .Button[disabled] {

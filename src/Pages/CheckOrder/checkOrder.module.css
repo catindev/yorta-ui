@@ -1,0 +1,10 @@
+.container {
+    padding-top: var(--main-padding);
+    padding-bottom: calc(var(--main-padding) / 2);
+}
+
+@media (min-width: 765px) {
+    .container  {
+        max-width: 350px;
+    }
+}

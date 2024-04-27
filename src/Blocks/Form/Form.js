@@ -2,9 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./form.module.css";
 import buttons from "./buttons.module.css";
 import Spinner from "Blocks/Spinner/Spinner";
-import Alert from "Blocks/Alert/Alert";
 
-export default function Form({ onSubmit = () => { }, disabled = false, error = false }) {
+export default function Form({ onSubmit = () => { }, disabled = false }) {
     const [account, setAccount] = useState("");
     const [order, setОrder] = useState("");
     const [amount, setAmount] = useState("");
@@ -17,7 +16,6 @@ export default function Form({ onSubmit = () => { }, disabled = false, error = f
     return (
         <div>
             <form className={styles.Form} onSubmit={handleSubmit} disabled={disabled}>
-                { error && <Alert message={error} type="danger" /> }
                 <div className={styles.field}>
                     <label htmlFor="account">Номер клиента</label>
                     <input type="number" id="account" value={account}

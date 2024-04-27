@@ -4,9 +4,10 @@ import Footer from "Blocks/Footer/Footer";
 import Container from "Blocks/Container/Container";
 import Logo from "Blocks/Logo/Logo";
 import Content from "Blocks/Content/Content";
-import Page from "Blocks/Page/Page";
-import Preloader from "Blocks/Preloader/Preloader";
-import Form from "Blocks/Form/Form";
+
+import CheckOrder from "Pages/CheckOrder/CheckOrder";
+import PaymentMethods from "Pages/PaymentMethods/PaymentMethods";
+
 
 import { check } from "Api";
 
@@ -40,12 +41,8 @@ function App() {
       <Container>
         <Logo />
         <Content>
-          {/* <Preloader text="Pending status..." size="medium" /> */}
-          <Page
-            title="Оплачивай заказы не выходя из дома"
-            subtitle="Введи данные по своему заказу и заплати банковской картой или QR-кодом">
-            <Form onSubmit={handleSubmit} disabled={fetching} error={error} />
-          </Page>
+          <CheckOrder/>
+          {/* <PaymentMethods/> */}
         </Content>
       </Container>
       <Footer />
