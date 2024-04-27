@@ -17,14 +17,13 @@ function CheckOrder() {
     const [fetching, setFetching] = useState(false);
     const [error, setError] = useState(false);
 
-    //TODO: унести логику в форму
     const handleSubmit = async ({ account, order, amount }) => {
         setError(false);
         setFetching(true);
         console.log("formdata", { account, order, amount });
 
         try {
-            const response = await check({ account, order_id: order, amount });
+            const response = await check({ account, order_id: order, amount: amount * 100 });
             console.log(response)
             if (response.message && response.payment_methods) {
                 // localStorage.setItem('appToken', response.token);

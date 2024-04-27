@@ -14,12 +14,9 @@ export const check = async ({ account, order_id, amount }) => {
     }
 }
 
-
-// 1011 - ok
-// 1015 - not ok
-export const postPayment = async ({ id, pan, month, year, cvv }) => {
-    const data = { id, payment_details: { pan, month, year, cvv } };
-    const url = `${BASE_URL}/core/v1/public/payment_data`;
+export const postPayment = async ({ account, order_id, amount, payment_method }) => {
+    const data = { account, order_id, amount, payment_method };
+    const url = `${BASE_URL}/yurta/order`;
     const request = { method: 'post', url, data };
     try {
         const response = await axios(request);
@@ -29,6 +26,13 @@ export const postPayment = async ({ id, pan, month, year, cvv }) => {
         throw error;
     }
 }
+
+
+// Статусы:
+// 400 финальный неуспех
+// 600 финальный успех 
+// 100 ожидает оплаты
+// 200 оплата получена ожидает успеха от выплатного процессинга
 
 export const getPayment = async (id) => {
     const url = `${BASE_URL}/core/v1/public/payment?id=${id}`;

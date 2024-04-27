@@ -6,14 +6,14 @@ const sizes = {
         width: "25", height: "25", stroke: "5", font: { fontSize: "1em" }
     },
     "medium": {
-        width: "50", height: "50", stroke: "4", font: { fontSize: "1.25em" }
+        width: "50", height: "50", stroke: "5", font: { fontSize: "1.25em" }
     },
     "large": {
         width: "100", height: "100", stroke: "2", font: { fontSize: "2em" }
     }
 };
 
-export default function Preloader({ text = "loading..", size = "small" }) {
+export default function Preloader({ text = "loading..", size = "small", color = "#605F5A" }) {
     return (
         <div className={styles.Preloader}>
             <div className={styles.icon}>
@@ -21,10 +21,10 @@ export default function Preloader({ text = "loading..", size = "small" }) {
                     width={sizes[size].width}
                     height={sizes[size].height}
                     stroke={sizes[size].stroke}
-                    color="#605F5A" />
+                    color={color} />
             </div>
             <div className={styles.text} style={sizes[size].font}>
-                {text}
+                <span style={{  color  }}>{text}</span>
             </div>
         </div>
     );

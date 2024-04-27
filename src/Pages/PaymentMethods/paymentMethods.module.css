@@ -4,3 +4,7 @@
     gap: calc(1.5 * var(--main-padding));
     padding-top: var(--main-padding);
 }
+
+.preloader {
+    padding-top: calc(1.5 * var(--main-padding));
+}
