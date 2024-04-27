@@ -1,4 +1,4 @@
-.Form {
+.Form, .container {
     padding-top: 1em;
 }
 
@@ -73,8 +73,8 @@ form[disabled] input {
 
 
 @media (min-width: 765px) {
-    .field {
-        max-width: 325px;
+    .Form {
+        max-width: 350px;
     }
 
     .field input {

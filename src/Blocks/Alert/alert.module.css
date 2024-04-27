@@ -1,0 +1,114 @@
+.Alert {
+    display: flex;
+    flex-direction: column;
+    gap: .25em;
+    padding: 1em 1.25em;
+    box-shadow: 0px 0px 0px .1em rgba(104, 142, 202, 0.25);
+    border: 0;
+    border-radius: 5px;
+    color: rgba(104, 142, 202, 1);
+    background-color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.25em;
+}
+
+.title {
+    font-size: 1.2em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.message {
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Types */
+.danger {
+    color: rgba(252, 86, 86, 1);
+    background: rgba(252, 86, 86, 0.12);
+    box-shadow: 0px 0px 0px .1em rgba(252, 86, 86, 1);
+    animation-name: ShakeDanger;
+    animation-fill-mode: forward;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+.success {
+    color: rgba(133, 175, 106, 1);
+    box-shadow: 0px 0px 0px .1em rgba(133, 175, 106, 0.25);
+    animation-name: ShakeSuccess;
+    animation-fill-mode: forward;
+    animation-duration: 0.35s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes ShakeDanger {
+    0% {
+        transform: translateX(0);
+    }
+
+    15% {
+        transform: translateX(0.375rem);
+    }
+
+    30% {
+        transform: translateX(-0.375rem);
+    }
+
+    45% {
+        transform: translateX(0.375rem);
+    }
+
+    60% {
+        transform: translateX(-0.375rem);
+    }
+
+    75% {
+        transform: translateX(0.375rem);
+    }
+
+    90% {
+        transform: translateX(-0.375rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ShakeSuccess {
+    0% {
+        transform: translateY(0);
+    }
+
+    15% {
+        transform: translateY(0.375rem);
+    }
+
+    30% {
+        transform: translateY(-0.375rem);
+    }
+
+    45% {
+        transform: translateY(0.375rem);
+    }
+
+    60% {
+        transform: translateY(-0.375rem);
+    }
+
+    75% {
+        transform: translateY(0.375rem);
+    }
+
+    90% {
+        transform: translateY(-0.375rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -12,9 +12,11 @@ import { check } from "Api";
 
 function App() {
   const [fetching, setFetching] = useState(false);
-  const [error, setError] = useState(0);
+  const [error, setError] = useState(false);
 
+  //TODO: унести логику в форму
   const handleSubmit = async ({ account, order, amount }) => {
+    setError(false);
     setFetching(true);
     console.log("formdata", { account, order, amount });
 
@@ -26,9 +28,10 @@ function App() {
         // window.location.href = "/profile";
       } else setError(1);
     } catch (error) {
-      setError(1);
+      console.log("error", error);
+      setError(error.response.data.message);
     } finally {
-      // setFetching(false);
+      setFetching(false);
     }
   }
 
@@ -41,7 +44,7 @@ function App() {
           <Page
             title="Оплачивай заказы не выходя из дома"
             subtitle="Введи данные по своему заказу и заплати банковской картой или QR-кодом">
-            <Form onSubmit={handleSubmit} disabled={fetching} />
+            <Form onSubmit={handleSubmit} disabled={fetching} error={error} />
           </Page>
         </Content>
       </Container>
