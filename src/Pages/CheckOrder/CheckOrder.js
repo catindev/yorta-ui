@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./checkOrder.module.css";
 
@@ -8,8 +9,11 @@ import Form from "Blocks/Form/Form";
 import Alert from "Blocks/Alert/Alert";
 
 import { check } from "Api";
+import { usePayment } from "PaymentContext";
 
 function CheckOrder() {
+    const navigate = useNavigate();
+    const { dispatch } = usePayment();
     const [fetching, setFetching] = useState(false);
     const [error, setError] = useState(false);
 
@@ -25,10 +29,20 @@ function CheckOrder() {
             if (response.message && response.payment_methods) {
                 // localStorage.setItem('appToken', response.token);
                 // window.location.href = "/profile";
+
+                if (response.message && response.payment_methods) {
+                    dispatch({
+                        type: 'SET_PAYMENT_DATA',
+                        payload: { account, order, amount, paymentMethods: response.payment_methods }
+                    });
+                    navigate('/payment');
+                } else {
+                    setError("Произошла ошибка 😱");
+                }
             } else setError(1);
         } catch (error) {
             console.log("error", error);
-            setError(error.response.data.message);
+            setError(error.response ? error.response.data.message : "Произошла ошибка 😱");
         } finally {
             setFetching(false);
         }

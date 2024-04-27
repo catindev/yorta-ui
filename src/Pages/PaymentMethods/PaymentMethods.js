@@ -13,12 +13,14 @@ import Spinner from "Blocks/Spinner/Spinner";
 import Alert from "Blocks/Alert/Alert";
 
 import { check } from "Api";
+import { usePayment } from "PaymentContext";
 
 function PaymentMethods() {
+    const { state } = usePayment();
+    const { account, order, amount, paymentMethods } = state;
     const [fetching, setFetching] = useState(false);
     const [error, setError] = useState(false);
 
-    //TODO: унести логику в форму
     const handleSubmit = async ({ account, order, amount }) => {
         setError(false);
         setFetching(true);
@@ -44,19 +46,19 @@ function PaymentMethods() {
             <>
                 {/* <Preloader text="Pending status..." size="medium" /> */}
                 <Page
-                    title="Оплата заказа #837332907"
-                    subtitle="Оплати казахстанской картой или через СБП в приложении своего банка">
+                    title={`Оплата заказа #${order}`}
+                    subtitle={`Клиент ${account}, оплати заказ казахстанской картой или через СБП в приложении своего банка`}>
 
                     <div className={styles.container}>
-                        <Alert message="Оплата этим способом временно недоступна. Попробуйте позже" type="danger" />
+                        {/* <Alert message="Оплата этим способом временно недоступна. Попробуйте позже" type="danger" /> */}
 
-                        <PaymentButton currency="₸" amount="100500" type="disabled"
+                        <PaymentButton currency="₸" amount="100500" type="card"
                             description="Картой банка Казахстана">
-                            {/* <img src={cardIcon} /> */}
-                            <Spinner stroke="5" color="#fff" />
+                            <img src={cardIcon} />
+                            {/* <Spinner stroke="5" color="#fff" /> */}
                         </PaymentButton>
 
-                        <PaymentButton amount="100500" type="disabled"
+                        <PaymentButton amount="100500" type="sbp"
                             description="QR-кодом любого банка РФ">
                             <img src={sbpIcon} />
                         </PaymentButton>
