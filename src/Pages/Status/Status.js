@@ -74,37 +74,42 @@ function Status() {
             navigate('/');
             return;
         }
-
+    
         document.title = "Платёж #" + id;
-
+    
         const fetchPaymentData = async () => {
             try {
                 const response = await getPayment(id);
                 if (response.status) {
                     setPayment(response);
-
-                    if (payment.status !== 600 && payment.status !== 400) {
+    
+                    // Проверяем, является ли статус финальным прямо после получения ответа
+                    if (response.status !== 600 && response.status !== 400) {
+                        console.log(response.status)
+                        // Если статус не финальный, планируем следующий запрос
                         timeoutID.current = setTimeout(fetchPaymentData, REQUEST_TIMEOUT);
                     } else {
-                        setFetching(false);   
+                        // Если статус финальный, останавливаем индикацию загрузки
+                        setFetching(false);
                     }
                 } else {
                     setError("Ошибка — не вышло прочитать данные о платеже");
                     setFetching(false);
                 }
-
             } catch (error) {
                 setError("Ошибка — не удалось загрузить данные о платеже");
-                setFetching(false)
+                setFetching(false);
             }
         };
-
+    
         fetchPaymentData();
-
+    
+        // Очистка таймера при размонтировании компонента
         return () => {
             if (timeoutID.current) clearTimeout(timeoutID.current);
-          };
-    }, [id, navigate]);
+        };
+    }, [id, navigate]); // Зависимости useEffect
+    
 
     return (
         <div>
