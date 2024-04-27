@@ -1,10 +1,50 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: calc(1.5 * var(--main-padding));
+    /* gap: calc(1.5 * var(--main-padding)); */
     padding-top: var(--main-padding);
 }
 
 .preloader {
     padding-top: calc(1.5 * var(--main-padding));
 }
+
+
+
+.amount {
+    font-size: calc(var(--main-padding) * 3.5);
+    font-weight: 700;
+    color: rgba(96, 95, 90, 1);
+    margin: .15em 0;
+    letter-spacing: -2px;
+}
+
+.localAmount {
+    font-size: calc(var(--main-padding) * 1.5) !important;
+    font-weight: 500;
+    color: rgba(96, 95, 90, .65);
+    letter-spacing: -2px;
+}
+
+.line {
+    display: block;
+    height: var(--main-padding);
+    border-bottom: 1px dotted rgba(96, 95, 90, .85);
+}
+
+.status {
+    font-size: calc(var(--main-padding) * 1.5);
+    font-weight: 400;
+    color: rgba(96, 95, 90, .65);
+    margin-top: 1em;
+    letter-spacing: -2px;
+}
+
+.status[type="600"] {
+    color: rgba(133, 175, 106, .85);
+}
+
+.status[type="400"] {
+    color: rgba(252, 86, 86, .85);
+}
+
