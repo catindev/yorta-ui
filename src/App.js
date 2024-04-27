@@ -16,7 +16,7 @@ function App() {
 
   const handleSubmit = async ({ account, order, amount }) => {
     setFetching(true);
-    console.log({ account, order, amount });
+    console.log("formdata", { account, order, amount });
 
     try {
       const response = await check({ account, order_id: order, amount });
