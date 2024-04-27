@@ -34,11 +34,16 @@ form[disabled] .Button:active, form[disabled] .Button:hover, .Button[disabled]:h
     background-color: rgba(252, 86, 86, 1);
     color: rgba(255, 255, 255, .85);
 }
+.Button[type="danger"]:active {
+    background-color: rgba(252, 86, 86, .85);
+}
 
 .Button[type="success"] {
     background-color: rgba(133, 175, 106, 1);
     color: rgba(255, 255, 255, .85);
-
+}
+.Button[type="success"]:active {
+    background-color: rgba(133, 175, 106, .85);
 }
 
 @media (min-width: 765px) {
