@@ -15,7 +15,7 @@ import Alert from "Blocks/Alert/Alert";
 
 import { postPayment } from "Api";
 import { usePayment } from "PaymentContext";
-import formatAmount from "./formatAmount.util";
+import { formatAmount } from "utils";
 import fakeCardRequest from "./fakeCardRequest.util";
 
 const colors = {
@@ -50,7 +50,7 @@ function PaymentMethods() {
         
         if (method.id === 2) { // Заглушка для тенге
             fakeCardRequest(() => {
-                setError((`Оплата ${method.description} временно недоступна. Попробуйте другой способ оплаты`).toUpperCase());
+                setError(`Оплата ${method.description} временно недоступна. Попробуйте другой способ оплаты`);
                 setFetching(false);
                 setDisabledMethods(prev => [...prev, method.id]);
             });
@@ -61,6 +61,7 @@ function PaymentMethods() {
                 });
                 
                 if (response.id && response.redirect_url) {
+                    // alert(response.id)
                     window.location.href = response.redirect_url;
                 } else {
                     setError("Платежная страница сломалась 🤒");
@@ -96,7 +97,7 @@ function PaymentMethods() {
                         {!fetching && paymentMethods.map(method => (
                             <PaymentButton
                                 key={method.id}
-                                currency={method.currency === "KZT" ? "₸" : "₽"}
+                                currency={method.currency}
                                 amount={formatAmount(method.amount)}
                                 type={disabledMethods.includes(method.id) ? "disabled" : (method.name === "Visa/Mc" ? "card" : "sbp")}
                                 description={method.description}
