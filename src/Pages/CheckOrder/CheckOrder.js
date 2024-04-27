@@ -29,7 +29,6 @@ function CheckOrder() {
             if (response.message && response.payment_methods) {
                 // localStorage.setItem('appToken', response.token);
                 // window.location.href = "/profile";
-
                 if (response.message && response.payment_methods) {
                     dispatch({
                         type: 'SET_PAYMENT_DATA',

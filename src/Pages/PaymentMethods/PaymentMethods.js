@@ -14,6 +14,7 @@ import Alert from "Blocks/Alert/Alert";
 
 import { check } from "Api";
 import { usePayment } from "PaymentContext";
+import formatAmount from "./formatAmount.util";
 
 function PaymentMethods() {
     const { state } = usePayment();
@@ -52,16 +53,16 @@ function PaymentMethods() {
                     <div className={styles.container}>
                         {/* <Alert message="Оплата этим способом временно недоступна. Попробуйте позже" type="danger" /> */}
 
-                        <PaymentButton currency="₸" amount="100500" type="card"
-                            description="Картой банка Казахстана">
-                            <img src={cardIcon} />
-                            {/* <Spinner stroke="5" color="#fff" /> */}
-                        </PaymentButton>
-
-                        <PaymentButton amount="100500" type="sbp"
-                            description="QR-кодом любого банка РФ">
-                            <img src={sbpIcon} />
-                        </PaymentButton>
+                        {paymentMethods.map(method => (
+                            <PaymentButton
+                                key={method.id}
+                                currency={method.currency === "KZT" ? "₸" : "₽"}
+                                amount={formatAmount(method.amount)}
+                                type={method.name === "Visa/Mc" ? "card" : "sbp"}
+                                description={method.description}>
+                                <img src={method.name === "Visa/Mc" ? cardIcon : sbpIcon} alt={method.name} />
+                            </PaymentButton>
+                        ))}
                     </div>
 
                 </Page>
