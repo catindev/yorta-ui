@@ -34,8 +34,8 @@ export const postPayment = async ({ account, order_id, amount, payment_method })
 // 100 ожидает оплаты
 // 200 оплата получена ожидает успеха от выплатного процессинга
 
-export const getPayment = async (id) => {
-    const url = `${BASE_URL}/core/v1/public/payment?id=${id}`;
+export const getPayment = async id => {
+    const url = `${BASE_URL}/yurta/order?id=${id}`;
     try {
         const response = await axios.get(url);
         return response.data;

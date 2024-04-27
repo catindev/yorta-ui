@@ -10,6 +10,7 @@ import Content from "Blocks/Content/Content";
 // Pages
 import CheckOrder from "Pages/CheckOrder/CheckOrder";
 import PaymentMethods from "Pages/PaymentMethods/PaymentMethods";
+import Status from "Pages/Status/Status";
 
 import { PaymentProvider } from "./PaymentContext";
 
@@ -23,6 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<CheckOrder />} />
               <Route path="/payment" element={<PaymentMethods />} />
+              <Route path="/status" element={<Status />} />
             </Routes>
           </Content>
         </Container>
