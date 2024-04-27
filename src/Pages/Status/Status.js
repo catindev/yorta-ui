@@ -14,6 +14,8 @@ import { getPayment } from "Api";
 import { formatAmount } from "utils";
 
 
+const REQUEST_TIMEOUT = 5000;
+
 const getStatusText = status => {
     switch (status) {
         case 100:
@@ -37,11 +39,9 @@ const Order = ({ payment }) => (
         <div className={styles.amount}>
             ₽ {formatAmount(payment.processingCurrencyAmount)}
         </div>
-
         <div className={styles.localAmount}>
             ₸ {formatAmount(payment.amount)}
         </div>
-
         <div className={styles.status} type={payment.status}>
             Заказ {getStatusText(payment.status)}
         </div>
@@ -49,7 +49,7 @@ const Order = ({ payment }) => (
         <div className={styles.line}></div>
 
         {(payment.status === 600 || payment.status === 400) && <div className={styles.footer}>
-            <Link to="/" className={buttons.Button} type={payment.status === 600 ? "success" : "danger" }>
+            <Link to="/" className={buttons.Button} type={payment.status === 600 ? "success" : "danger"}>
                 👈 Повторить оплату
             </Link>
         </div>}
@@ -82,7 +82,12 @@ function Status() {
                 const response = await getPayment(id);
                 if (response.status) {
                     setPayment(response);
-                    setFetching(false);
+
+                    if (payment.status !== 600 && payment.status !== 400) {
+                        timeoutID.current = setTimeout(fetchPaymentData, REQUEST_TIMEOUT);
+                    } else {
+                        setFetching(false);   
+                    }
                 } else {
                     setError("Ошибка — не вышло прочитать данные о платеже");
                     setFetching(false);
@@ -96,7 +101,9 @@ function Status() {
 
         fetchPaymentData();
 
-
+        return () => {
+            if (timeoutID.current) clearTimeout(timeoutID.current);
+          };
     }, [id, navigate]);
 
     return (
@@ -105,7 +112,7 @@ function Status() {
                 <Page
                     title={`Платеж #${id}`}
                     subtitle={payment.status ? `От клиента ${payment.account} по заказу #${payment.orderId}` : ""}
-                    type={fetching ? "pending" : (payment.status === 600 ? "success" : "error")}>
+                    type={fetching ? "pending" : (payment.status === 600 ? "success" : (payment.status === 400 ? "error" : "pending"))}>
 
                     <div className={styles.container}>
                         {error && <Alert message={error} type="danger" />}
@@ -114,7 +121,7 @@ function Status() {
 
 
                         {fetching && <div className={styles.preloader}>
-                            <Preloader text="Загружаем данные об оплате..." size="medium" />
+                            <Preloader text="Проверяем данные о платеже..." size="small" />
                         </div>}
                     </div>
 
