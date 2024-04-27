@@ -1,7 +1,8 @@
 export default function formatAmount(amount) {
-    if (amount % 1 === 0) {
-        return amount.toString();
+    let fixed = amount / 100;
+    if (fixed % 1 === 0) {
+        return fixed.toString();
     } else {
-        return amount.toFixed(2); 
+        return fixed.toFixed(2); 
     }
 }

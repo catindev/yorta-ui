@@ -4,8 +4,8 @@ import buttons from "./buttons.module.css";
 import Spinner from "Blocks/Spinner/Spinner";
 
 export default function Form({ onSubmit = () => { }, disabled = false }) {
-    const [account, setAccount] = useState("");
-    const [order, setОrder] = useState("");
+    const [account, setAccount] = useState("7020672426");
+    const [order, setОrder] = useState("837332907");
     const [amount, setAmount] = useState("");
 
     const handleSubmit = async (event) => {

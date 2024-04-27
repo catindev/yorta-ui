@@ -48,8 +48,7 @@ function PaymentMethods() {
         setColor(colors[method.id]);
         setFetching(true);
         
-        // Заглушка для тенге
-        if (method.id === 2) {
+        if (method.id === 2) { // Заглушка для тенге
             fakeCardRequest(() => {
                 setError((`Оплата ${method.description} временно недоступна. Попробуйте другой способ оплаты`).toUpperCase());
                 setFetching(false);
@@ -62,11 +61,11 @@ function PaymentMethods() {
                 });
                 
                 if (response.id && response.redirect_url) {
-                    // window.open(response.redirect_url, '_blank');
-                    // navigate('/status?id=' + response.id);
-                    setIsRedirect(true);
                     window.location.href = response.redirect_url;
-                } else setError("Платежная страница сломалась 🤒");
+                } else {
+                    setError("Платежная страница сломалась 🤒");
+                    setFetching(false);
+                }
 
             } catch (error) {
                 setError(
@@ -75,9 +74,8 @@ function PaymentMethods() {
                         : 
                         "Произошла неизвестная ошибка 😱"
                 );
-            } finally {
-                if(!isRedirect) setFetching(false);
-            }
+                setFetching(false);
+            } 
         }
     };
 
