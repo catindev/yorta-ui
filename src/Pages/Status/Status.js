@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styles from "./status.module.css";
+import buttons from "Blocks/Form/buttons.module.css";
 
 import Page from "Blocks/Page/Page";
 import Preloader from "Blocks/Preloader/Preloader";
@@ -45,6 +47,13 @@ const Order = ({ payment }) => (
         </div>
 
         <div className={styles.line}></div>
+
+        {(payment.status === 600 || payment.status === 400) && <div className={styles.footer}>
+            <Link to="/" className={buttons.Button} type={payment.status === 600 ? "success" : "danger" }>
+                👈 Повторить оплату
+            </Link>
+        </div>}
+
     </>
 );
 
@@ -101,7 +110,7 @@ function Status() {
                     <div className={styles.container}>
                         {error && <Alert message={error} type="danger" />}
 
-                        {payment.status && <Order payment={payment}/>}
+                        {payment.status && <Order payment={payment} />}
 
 
                         {fetching && <div className={styles.preloader}>

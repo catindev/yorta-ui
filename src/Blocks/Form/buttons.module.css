@@ -31,13 +31,14 @@ form[disabled] .Button:active, form[disabled] .Button:hover, .Button[disabled]:h
 }
 
 .Button[type="danger"] {
-    background-color: var(--brand-danger);
-    color: var(--brand-light);
+    background-color: rgba(252, 86, 86, 1);
+    color: rgba(255, 255, 255, .85);
 }
 
 .Button[type="success"] {
-    background-color: var(--brand-success);
-    color: rgba(var(--brand-text-rgb), .5);
+    background-color: rgba(133, 175, 106, 1);
+    color: rgba(255, 255, 255, .85);
+
 }
 
 @media (min-width: 765px) {
