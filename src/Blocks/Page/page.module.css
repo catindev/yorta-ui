@@ -1,0 +1,27 @@
+.Page {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 2.25em;
+
+    border: var(--test-border-dotted);
+    border-color: black;
+}
+
+.block {
+    flex: 1;
+
+    border: var(--test-border-dotted);
+    border-color: grey;
+}
+
+.autohide {
+    display: none;
+}
+
+@media (min-width: 765px) {
+    .autohide {
+        display: block;
+    }
+}

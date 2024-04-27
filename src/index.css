@@ -1,0 +1,40 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --test-border: 1px solid #fff;
+  --test-border-dotted: 0px dotted #fff;
+
+  --max-page-width: 1024px;
+  --main-padding: 1em;
+}
+
+html,
+body {
+  margin: 0px;
+  font-family: Roboto, Arial, sans-serif;
+  background-color: #fff;
+
+  /* background-image: url(../public/bg.svg);
+  background-position: top center;
+  background-repeat: no-repeat; */
+}
+
+
+@media (min-width: 765px) {
+  :root {
+    --max-page-width: 1024px;
+    --main-padding: 1.5em;
+  }
+
+  html,
+  body {
+    /* background-position: top left 15%; */
+  }
+}

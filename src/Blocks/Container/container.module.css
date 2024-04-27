@@ -1,0 +1,23 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    background-image: url(bg.svg);
+    background-position: top 5em center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    padding-bottom: 10%;
+
+
+
+    border: var(--test-border-dotted);
+    border-color: pink;
+}
+
+@media (min-width: 765px) {
+    .Container {
+        margin: 0 auto;
+        max-width: var(--max-page-width);
+        min-width: var(--max-page-width);
+        background-position: left 1em top 3em;
+    }
+}

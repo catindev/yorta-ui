@@ -1,0 +1,49 @@
+.Preloader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+
+    border: var(--test-border-dotted);
+    border-color: magenta;
+}
+
+.icon {
+    opacity: .85;
+
+
+    border: var(--test-border-dotted);
+    border-color: grey;
+}
+
+.text {
+    color: #605F5A;
+    font-weight: 300;
+    padding-top: 1em;
+    opacity: .85;
+
+    border: var(--test-border-dotted);
+    border-color: grey;
+}
+
+@media (min-width: 765px) {
+    .Preloader {
+        flex-direction: row;  /* Элементы рядом друг с другом */
+        justify-content: flex-start; /* Равномерное распределение пространства между элементами */
+        align-items: stretch; /* Вытягивание дочерних элементов на всю высоту */
+    }
+
+    .icon {
+        /* width: 150px; */
+    }
+
+    .text {
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        padding-top: 0;
+        padding-left: 1em;
+    }
+}

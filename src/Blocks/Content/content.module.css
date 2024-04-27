@@ -1,0 +1,15 @@
+.Content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--main-padding);
+
+    border: var(--test-border-dotted);
+    border-color: green;
+}
+
+@media (min-width: 765px) {
+    .Content {
+        
+    }
+}

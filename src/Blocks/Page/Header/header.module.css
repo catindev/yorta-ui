@@ -1,0 +1,41 @@
+.Header {
+    display: block;
+    /* margin-bottom: .15em; */
+
+    border: var(--test-border-dotted);
+    border-color: burlywood;
+}
+
+.Header h1 {
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.4px;
+    margin-bottom: .25em;
+    text-align: center;
+}
+
+.Header h2 {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.15;
+    opacity: .65;
+    text-align: center;
+}
+
+@media (min-width: 765px) {
+    .Header h1 {
+        font-size: 3em;
+        font-weight: 900;
+        margin-bottom: .25em;
+        text-align: left;
+    }
+
+    .Header h2 {
+        font-size: 1.35em;
+        font-weight: 100;
+        line-height: 1.25;
+        text-align: left;
+        opacity: 1;
+    }
+}

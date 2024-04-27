@@ -1,0 +1,84 @@
+.Form {
+    padding-top: 1em;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+
+    border: var(--test-border-dotted);
+    border-color: tomato;
+}
+
+.field label {
+    color: rgba(104, 142, 202, 0.75);
+    font-weight: 500;
+    font-size: 1em;
+    margin-bottom: .5em;
+}
+
+.field span {
+    display: none;
+    font-size: .75em;
+    margin-top: .5em;
+}
+
+.field input {
+    сolor: #000;
+    border-radius: 5px;
+    border: 2px solid #688ECA;
+    background: rgba(104, 142, 202, 0.05);
+
+    padding: .5em;
+    font-size: 1.12em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2em;
+    transition: all 0.2s ease;
+}
+
+.field input::placeholder {
+    color: rgba(104, 142, 202, .5);
+}
+
+.field input:focus {
+    border-radius: 5px;
+    border: 2px solid rgba(104, 142, 202, 0.85);
+    background: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(104, 142, 202, 0.50);
+    outline: none;
+}
+
+.field:focus-within label {
+    color: #688ECA;
+}
+
+
+form[disabled] label {
+    color: rgba(96, 95, 90, .65);
+}
+
+form[disabled] input {
+    color: rgba(96, 95, 90, .85);
+    border-radius: 5px;
+    border: 2px solid #CFCDC7;
+    background: rgba(227, 225, 215, 0.25);
+    cursor: not-allowed;
+}
+
+.footer {
+    padding-top: .75em;
+}
+
+
+@media (min-width: 765px) {
+    .field {
+        max-width: 325px;
+    }
+
+    .field input {
+        font-size: 1.15em;
+        padding: .5em;
+    }
+}

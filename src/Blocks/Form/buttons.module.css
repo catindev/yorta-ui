@@ -1,0 +1,71 @@
+.Button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    cursor: pointer;
+    text-decoration: none;
+    padding: .75em 2em;
+    background: #688ECA;
+    color: #fff;  
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px 0px rgba(var(--brand-light-rgb), 0.15);
+}
+
+.Button:active {
+    box-shadow: 0px 0px 0px .25em rgba(var(--brand-dark-rgb), 0.25);
+}
+
+form[disabled] .Button:active, form[disabled] .Button:hover, .Button[disabled]:hover, .Button[disabled] {
+    box-shadow: none;
+    cursor: not-allowed;
+    background: rgba(96, 95, 90, 1);
+    opacity: .65;
+    font-size: .85;
+}
+
+.Button[type="danger"] {
+    background-color: var(--brand-danger);
+    color: var(--brand-light);
+}
+
+.Button[type="success"] {
+    background-color: var(--brand-success);
+    color: rgba(var(--brand-text-rgb), .5);
+}
+
+@media (min-width: 765px) {
+    .Button {
+        font-size: 1.05em;
+        width: auto;
+        box-shadow: none;
+        transition: all 0.2s ease; 
+    }
+    
+    .Button:hover {
+        box-shadow: 0px 4px 10px 0px rgba(104, 142, 202, 0.50);
+    }
+
+    .Button:active {
+        background: #5170A2;
+    }
+    
+    .Button[type="danger"]:hover {
+        box-shadow: 0px 0px 0px .25em rgba(var(--brand-danger-rgb), 0.25);
+    }
+
+    .Button[type="success"]:hover {
+        box-shadow: 0px 0px 0px .25em rgba(var(--brand-success-rgb), 0.25);
+    }
+
+    .Buttons {
+        padding-top: 0;
+        flex-direction: row;
+    }
+}
