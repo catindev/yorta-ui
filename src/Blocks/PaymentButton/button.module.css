@@ -21,6 +21,10 @@
 .icon {
     margin-right: calc(1.25 * var(--main-padding));
     opacity: .75;
+    transition: all 0.2s ease;
+}
+.PaymentButton:hover > .icon {
+    opacity: 1;
 }
 
 .text {
@@ -42,7 +46,7 @@
 
 
 .PaymentButton[type="card"] {
-    text-shadow: 1px 1px 5px rgba(67, 126, 134, 1);
+    text-shadow: 1px 1px 5px rgba(67, 126, 134, .45);
     background:rgba(101, 195, 208, 1);
     cursor: pointer;
     opacity: 1;
@@ -62,7 +66,7 @@
 
 
 .PaymentButton[type="sbp"] {
-    text-shadow: 1px 1px 5px rgba(194, 126, 26, 1);
+    text-shadow: 1px 1px 5px rgba(194, 126, 26, .65);
     background:rgba(255, 166, 34, 1);
     cursor: pointer;
     opacity: 1;
