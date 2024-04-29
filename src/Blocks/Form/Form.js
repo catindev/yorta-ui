@@ -31,7 +31,7 @@ export default function Form({ onSubmit = () => { }, disabled = false }) {
 
                 <div className={styles.field}>
                     <label htmlFor="amount">Сумма оплаты в тенге</label>
-                    <input type="number" id="amount" value={amount}
+                    <input type="number" id="amount" value={amount} min="5"
                         onChange={e => setAmount(e.target.value)} required disabled={disabled} />
                 </div>
 
