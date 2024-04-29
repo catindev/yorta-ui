@@ -74,15 +74,15 @@ function Status() {
             navigate('/');
             return;
         }
-    
+
         document.title = "Платёж #" + id;
-    
+
         const fetchPaymentData = async () => {
             try {
                 const response = await getPayment(id);
                 if (response.status) {
                     setPayment(response);
-    
+
                     // Проверяем, является ли статус финальным прямо после получения ответа
                     if (response.status !== 600 && response.status !== 400) {
                         console.log(response.status)
@@ -101,15 +101,15 @@ function Status() {
                 setFetching(false);
             }
         };
-    
+
         fetchPaymentData();
-    
+
         // Очистка таймера при размонтировании компонента
         return () => {
             if (timeoutID.current) clearTimeout(timeoutID.current);
         };
     }, [id, navigate]); // Зависимости useEffect
-    
+
 
     return (
         <div>
@@ -128,6 +128,22 @@ function Status() {
                         {fetching && <div className={styles.preloader}>
                             <Preloader text="Проверяем данные о платеже..." size="small" />
                         </div>}
+
+                        <div className={styles.help}>
+                            <h3>Есть вопросы?</h3>
+                            <div className={styles.item}>
+                                <p>Оплата не прошла или есть вопросы по платежам? Ответим оперативно</p>
+                                <a href="https://Yortakz.t.me" type="tg" target="_blank" rel="noopener noreferrer">
+                                    В телеграм @Yortakz
+                                </a>
+                            </div>
+                            <div className={styles.item}>
+                                <p>Все другие вопросы по доставке и обслуживанию напиши</p>
+                                <a href="mailto:infokz@amway.com " type="mail" target="_blank" rel="noopener noreferrer">
+                                    На почту infokz@amway.com
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                 </Page>

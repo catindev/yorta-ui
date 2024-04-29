@@ -51,7 +51,66 @@
     color: rgba(252, 86, 86, .85);
 }
 
+.help {
+    display: flex;
+    flex-direction: column;
+    gap:  calc(1.25 * var(--main-padding));
+    margin-top: calc(3 * var(--main-padding));
+    padding-top: calc(1.5 * var(--main-padding));
+    /* border-top: 1px dotted rgba(96, 95, 90, .15); */
+}
+
+.help h3 {
+    font-size: 1.5em;
+    color: rgba(96, 95, 90, .75);
+    font-weight: 500;
+}
+
+.item {
+    font-size: .87em;
+    color: rgba(96, 95, 90, .95);
+    min-width: 100px;
+}
+
+.item a {
+    display: block;
+    text-decoration: none;
+    font-size: .85em;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    padding: 1em;
+    margin-top: .85em;
+    background-color: rgba(96, 95, 90, 1);
+    max-width: 190px;
+}
+
+.item a[type="mail"] {
+    background-color: rgba(228, 149, 31, 1);
+    text-shadow: 1px 1px 5px rgba(194, 126, 26, .65);
+}
+
+.item a[type="tg"] {
+    background-color: rgba(86, 162, 173, 1);
+    text-shadow: 1px 1px 5px rgba(67, 126, 134, .45);
+}
+
 
 @media (min-width: 765px) {
     .footer { max-width: 300px; }
+
+    .help {
+        flex-direction: row;
+    }
+
+    .item {
+        min-width: 200px;
+    }
+
+    .help h3 {
+        font-size: 1.85em;
+    }
+    
 }
