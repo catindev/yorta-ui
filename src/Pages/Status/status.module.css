@@ -57,7 +57,6 @@
     gap:  calc(1.25 * var(--main-padding));
     margin-top: calc(3 * var(--main-padding));
     padding-top: calc(1.5 * var(--main-padding));
-    /* border-top: 1px dotted rgba(96, 95, 90, .15); */
 }
 
 .help h3 {
@@ -100,7 +99,9 @@
 
 
 @media (min-width: 765px) {
-    .footer { max-width: 300px; }
+    .footer { 
+        max-width: 300px; 
+    }
 
     .help {
         flex-direction: row;
@@ -112,6 +113,5 @@
 
     .help h3 {
         font-size: 1.85em;
-    }
-    
+    }    
 }
