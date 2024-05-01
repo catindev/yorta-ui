@@ -1,39 +1,43 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import styles from "./form.module.css";
 import buttons from "./buttons.module.css";
 import Spinner from "Blocks/Spinner/Spinner";
 
-export default function Form({ onSubmit = () => { }, disabled = false }) {
-    // 7020672426 837332907
-    const [account, setAccount] = useState("");
-    const [order, setОrder] = useState("");
-    const [amount, setAmount] = useState("");
+const InputField = ({ id, label, value, setValue, disabled }) => (
+    <div className={styles.field}>
+        <label htmlFor={id}>{label}</label>
+        <input type="number" id={id} value={value}
+            onChange={e => setValue(e.target.value)} required disabled={disabled} />
+    </div>
+);
+
+// Test account 7020672426 
+// Test order 837332907
+export default function Form({ onSubmit = () => {}, disabled = false }) {
+    const [formData, setFormData] = useState({
+        account: "",
+        order: "",
+        amount: ""
+    });
+
+    const handleChange = (field) => (value) => {
+        setFormData(prev => ({ ...prev, [field]: value }));
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        onSubmit({ account, order, amount });
+        onSubmit(formData);
     }
 
     return (
         <div>
             <form className={styles.Form} onSubmit={handleSubmit} disabled={disabled}>
-                <div className={styles.field}>
-                    <label htmlFor="account">Номер клиента</label>
-                    <input type="number" id="account" value={account}
-                        onChange={e => setAccount(e.target.value)} required disabled={disabled} />
-                </div>
-
-                <div className={styles.field}>
-                    <label htmlFor="order">Номер заказа</label>
-                    <input type="number" id="order" value={order}
-                        onChange={e => setОrder(e.target.value)} required disabled={disabled} />
-                </div>
-
-                <div className={styles.field}>
-                    <label htmlFor="amount">Сумма оплаты в тенге</label>
-                    <input type="number" id="amount" value={amount} min="5"
-                        onChange={e => setAmount(e.target.value)} required disabled={disabled} />
-                </div>
+                <InputField id="account" label="Номер клиента" value={formData.account}
+                    setValue={handleChange('account')} disabled={disabled} />
+                <InputField id="order" label="Номер заказа" value={formData.order}
+                    setValue={handleChange('order')} disabled={disabled} />
+                <InputField id="amount" label="Сумма оплаты в тенге" value={formData.amount}
+                    setValue={handleChange('amount')} disabled={disabled} />
 
                 <div className={styles.footer}>
                     <button className={buttons.Button} type="submit" disabled={disabled}>
