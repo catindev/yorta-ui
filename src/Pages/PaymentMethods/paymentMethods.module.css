@@ -8,3 +8,42 @@
 .preloader {
     padding-top: calc(1.5 * var(--main-padding));
 }
+
+.help {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.help h3 {
+    font-size: 1.5em;
+    color: rgba(96, 95, 90, .75);
+    font-weight: 500;
+}
+
+.item {
+    font-size: .87em;
+    color: rgba(96, 95, 90, .95);
+    min-width: 100px;
+    line-height: 1.1;
+}
+
+.item a {
+    display: block;
+    text-decoration: none;
+    font-size: .85em;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    padding: 1em;
+    margin-top: .85em;
+    background-color: rgba(96, 95, 90, 1);
+    max-width: 190px;
+}
+
+.item a[type="tg"] {
+    background-color: rgba(86, 162, 173, 1);
+    text-shadow: 1px 1px 5px rgba(67, 126, 134, .45);
+}

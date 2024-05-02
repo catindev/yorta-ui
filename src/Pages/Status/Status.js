@@ -3,8 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import styles from "./Status.module.css";
-import buttons from "Blocks/Form/Buttons.module.css";
+import styles from "./status.module.css";
+import buttons from "Blocks/Form/buttons.module.css";
 
 import Page from "Blocks/Page/Page";
 import Preloader from "Blocks/Preloader/Preloader";

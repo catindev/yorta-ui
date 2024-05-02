@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./CheckOrder.module.css";
+import styles from "./checkOrder.module.css";
 
 import Page from "Blocks/Page/Page";
 import Form from "Blocks/Form/Form";

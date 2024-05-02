@@ -1,4 +1,4 @@
-import styles from "./Content.module.css";
+import styles from "./content.module.css";
 
 export default function Content({ children }) {
     return (
