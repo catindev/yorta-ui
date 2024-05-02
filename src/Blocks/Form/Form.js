@@ -3,11 +3,11 @@ import styles from "./form.module.css";
 import buttons from "./buttons.module.css";
 import Spinner from "Blocks/Spinner/Spinner";
 
-const InputField = ({ id, label, value, setValue, disabled }) => (
+const InputField = ({ id, label, value, setValue, disabled, min = "0" }) => (
     <div className={styles.field}>
         <label htmlFor={id}>{label}</label>
         <input type="number" id={id} value={value}
-            onChange={e => setValue(e.target.value)} required disabled={disabled} />
+            onChange={e => setValue(e.target.value)} min={min} required disabled={disabled} />
     </div>
 );
 
@@ -37,7 +37,7 @@ export default function Form({ onSubmit = () => {}, disabled = false }) {
                 <InputField id="order" label="Номер заказа" value={formData.order}
                     setValue={handleChange('order')} disabled={disabled} />
                 <InputField id="amount" label="Сумма оплаты в тенге" value={formData.amount}
-                    setValue={handleChange('amount')} disabled={disabled} />
+                    setValue={handleChange('amount')} min="10" disabled={disabled} />
 
                 <div className={styles.footer}>
                     <button className={buttons.Button} type="submit" disabled={disabled}>
