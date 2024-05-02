@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import styles from './PaymentButton.module.css';
 import rub from "./rub.svg"; 
 import kzt from "./kzt.svg"; 
 
