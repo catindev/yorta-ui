@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./paymentMethods.module.css";
+import styles from "./PaymentMethods.module.css";
 
 import Page from "Blocks/Page/Page";
 import Preloader from "Blocks/Preloader/Preloader";
@@ -10,7 +10,6 @@ import PaymentButton from "Blocks/PaymentButton/PaymentButton";
 import sbpIcon from "Blocks/PaymentButton/sbp.svg";
 import cardIcon from "Blocks/PaymentButton/card.svg";
 
-import Spinner from "Blocks/Spinner/Spinner";
 import Alert from "Blocks/Alert/Alert";
 
 import { postPayment } from "Api";

@@ -1,4 +1,4 @@
-import styles from './button.module.css';
+import styles from './Button.module.css';
 import rub from "./rub.svg"; 
 import kzt from "./kzt.svg"; 
 

@@ -1,4 +1,4 @@
-import styles from "./preloader.module.css";
+import styles from "./Preloader.module.css";
 import Spinner from "../Spinner/Spinner";
 
 const sizes = {

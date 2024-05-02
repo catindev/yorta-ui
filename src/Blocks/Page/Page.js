@@ -1,4 +1,4 @@
-import styles from "./page.module.css";
+import styles from "./Page.module.css";
 import Image from "./Image/Image";
 import Header from "./Header/Header";
 

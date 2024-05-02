@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./form.module.css";
-import buttons from "./buttons.module.css";
+import styles from "./Form.module.css";
+import buttons from "./Buttons.module.css";
 import Spinner from "Blocks/Spinner/Spinner";
 
 const InputField = ({ id, label, value, setValue, disabled }) => (

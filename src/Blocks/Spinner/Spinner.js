@@ -1,4 +1,4 @@
-import styles from "./spinner.module.css";
+import styles from "./Spinner.module.css";
 
 const Spinner = ({ width = '50px', height = '50px', color = "#000", stroke = "2" }) => (
     <svg className={styles.spinner} viewBox="0 0 50 50" width={width} height={height}>

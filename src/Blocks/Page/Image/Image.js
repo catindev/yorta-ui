@@ -1,4 +1,4 @@
-import styles from "./image.module.css";
+import styles from "./Image.module.css";
 import defaultImage from "./default.svg";
 import successImage from "./success.svg";
 import errorImage from "./error.svg";
